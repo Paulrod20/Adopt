@@ -41,6 +41,12 @@ nav ul li a{
     text-decoration: none;
     color: #fff;
     font-size: 17px;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    letter-spacing: 1px;
+    color: #B1F0F7;
 }
 
 .logo {
@@ -61,12 +67,19 @@ nav ul li a{
 .content a {
     text-decoration: none;
     display: inline-block;
-    color: #fff;
+    color: black;
+    background-color: #fff;
     font-size: 24px;
     border: 2px solid #fff;
-    padding: 14px 70px;
+    padding: 14px 40px;
     border-radius: 50px;
     margin-top: 20px;
+    transition: 0.2s;
+}
+
+.content a:hover {
+    letter-spacing: 6px;
+    color: #B1F0F7;
 }
 
 .back-video {
