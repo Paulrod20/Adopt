@@ -103,13 +103,58 @@ nav ul li a:hover {
     }
 }
 
-.logo-button {
-    background: none;
-    border: none;
-    padding: 0;
+.hamburger {
+    display: none;
     cursor: pointer;
 }
 
-.logo-button:focus {
-    outline: none;
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+}
+
+/* Add these styles for hamburger animation */
+.rotate-45 {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.rotate-negative-45 {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
