@@ -224,3 +224,10 @@ body {
     max-width: 100vw; /* Ensure content doesn't exceed viewport width */
     overflow-x: hidden;
 }
+
+.your-element {
+    background-image: url('/assets/DogBackground.jpg');
+    /* Make sure image covers the container */
+    background-size: cover;
+    background-position: center;
+}
