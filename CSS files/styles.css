@@ -1,3 +1,10 @@
+:root {
+    --accent-color:#08C2FF;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -46,11 +53,11 @@ nav ul li a{
 
 nav ul li a:hover {
     letter-spacing: 1px;
-    color: lightblue;
+    color: var(--accent-color);
 }
 
 #nav-button {
-    background-color: #007bff;  /* Button background color - you can change this */
+    background-color: var(--accent-color);  /* Button background color - you can change this */
     color: white;
     padding: 8px 16px;
     border-radius: 4px;
@@ -59,7 +66,7 @@ nav ul li a:hover {
 }
 
 #nav-button:hover {
-    background-color: #0056b3; 
+    background-color: var(--accent-color); 
     transition: .2s; /* Darker shade for hover effect */
 } 
 
@@ -93,7 +100,7 @@ nav ul li a:hover {
 
 .content a:hover {
     letter-spacing: 6px;
-    color: #B1F0F7;
+    color: var(--accent-color);
 }
 
 .back-video {
