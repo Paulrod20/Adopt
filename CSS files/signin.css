@@ -37,12 +37,17 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: var(--accent-color);
+    background: #fff;
     display: flex;
     align-items: center;
     text-align: center;
     color: #333;
     padding: 40px;
+    z-index: 1;
+}
+
+.form-box.register {
+    visibility: hidden;
 }
 
 form {
@@ -81,7 +86,7 @@ form {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: green;
+    color: #888;
 }
 
 .forgot-link {
@@ -113,7 +118,7 @@ form {
 }
 
 .social-icons a {
-    display: inline-block;
+    display: inline-flex;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -123,4 +128,34 @@ form {
     margin: 0 8px;
 }
 
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+}
 
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    /* background: seagreen; */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-panel p {
+    margin-bottom: 20px;
+}
+
+.toggle-panel .btn {
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+
+}
