@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/CSS files/signin.css">
     <title>Sign In | Adopt</title>
 </head>
 <body>
     <div class="container">
-        <div class="form-box">
-            <h1>Sign In</h1>
-            <form>
-                <div class="input-group">
-                    <div class="input-field">
-                        
-                    </div>
+        <div class="form-box-login">
+            <form action="">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <box-icon type='solid' name='user'></box-icon>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Password" required>
+                    <box-icon name='lock-alt' type='solid' ></box-icon>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p>or login with social platforms</p>
+                <div class="social-icons">
+                    <a href="#"><box-icon type='logo' name='google'></box-icon></a>
+                    <a href="#"><box-icon name='github' type='logo' ></box-icon></a>
+                    <a href="#"><box-icon name='facebook' type='logo' ></box-icon></a>
+                    <a href="#"><box-icon name='instagram-alt' type='logo' ></box-icon></a>
                 </div>
             </form>
         </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/ee0fe3de7a.js" crossorigin="anonymous"></script>
+    <script src="/JS Files/signin.js"></script>
 </body>
 </html>
