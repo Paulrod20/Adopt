@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt | Shelters</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #info {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find the Nearest Dog Shelter</h1>
+    <button onclick="getLocation()">Find Shelters</button>
+    <div id="map"></div>
+    <div id="info"></div>
+
+    <script src="/JS Files/shelters.js"></script>
+    <!-- Google Maps API (Replace YOUR_API_KEY with your actual API key) -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhSxCQsxVO5bMdxXpCWaaS-CZZl_ELddg&libraries=places&callback=initMap"></script>
+</body>
+</html>
