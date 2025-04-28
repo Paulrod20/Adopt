@@ -17,6 +17,14 @@ body {
     color: var(--accent-color) !important;
 }
 
+#nav-button {
+    color: black !important; /* Button text color */
+}
+
+nav a {
+    text-decoration: none;
+}
+
 .bio-section {
     display: flex;
     justify-content: space-around;

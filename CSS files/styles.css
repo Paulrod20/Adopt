@@ -34,6 +34,10 @@ nav {
     justify-content: space-between;
 }
 
+nav a {
+    text-decoration: none;
+}
+
 nav .logo {
     width: 80px;
 }
