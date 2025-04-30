@@ -1,86 +1,74 @@
 let map;
-let service;
-let userMarker;
+let infoWindow;
+let userLocation;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 37.7749, lng: -122.4194 }, // Default: San Francisco
+        center: { lat: 35.7796, lng: -78.6382 }, // Default center (Raleigh, NC)
         zoom: 12,
     });
+    infoWindow = new google.maps.InfoWindow();
 }
-window.initMap = initMap; // Ensures the API can call this function
-
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        navigator.geolocation.getCurrentPosition(position => {
+            userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(userLocation);
+
+            // Search for nearby shelters
+            const service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: userLocation,
+                radius: 10000, // 10km
+                keyword: "dog shelter"
+            }, displayResults);
+        }, () => {
+            alert("Geolocation failed. Please allow location access.");
+        });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 }
 
-function showPosition(position) {
-    const userLocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-    };
-
-    map.setCenter(userLocation);
-    userMarker = new google.maps.Marker({
-        position: userLocation,
-        map: map,
-        title: "Your Location",
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-    });
-
-    findShelters(userLocation);
-}
-
-function findShelters(location) {
-    const request = {
-        location: location,
-        radius: 5000, // Search within 5km
-        type: ["pet_store", "veterinary_care"] // Google's categories for pet-related places
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, displayResults);
-}
-
 function displayResults(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        let infoDiv = document.getElementById("info");
-        infoDiv.innerHTML = "<h3>Nearest Dog Shelters:</h3>";
-
-        results.forEach((place) => {
-            let marker = new google.maps.Marker({
-                position: place.geometry.location,
-                map: map,
-                title: place.name
-            });
-
-            infoDiv.innerHTML += `<p><strong>${place.name}</strong><br>Address: ${place.vicinity}</p>`;
+        results.forEach(place => {
+            createMarker(place);
         });
-    } else {
-        alert("No shelters found nearby.");
     }
 }
 
-function showError(error) {
-    let errorMessage = "";
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            errorMessage = "User denied the request for Geolocation.";
-            break;
-        case error.POSITION_UNAVAILABLE:
-            errorMessage = "Location information is unavailable.";
-            break;
-        case error.TIMEOUT:
-            errorMessage = "The request to get user location timed out.";
-            break;
-        case error.UNKNOWN_ERROR:
-            errorMessage = "An unknown error occurred.";
-            break;
-    }
-    alert(errorMessage);
+function createMarker(place) {
+    const marker = new google.maps.Marker({
+        map,
+        position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, "click", () => {
+        const request = {
+            placeId: place.place_id,
+            fields: ["name", "formatted_address", "formatted_phone_number", "website", "rating"]
+        };
+
+        const service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, (placeDetails, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                infoWindow.setContent(`
+                    <div>
+                        <strong>${placeDetails.name}</strong><br>
+                        ${placeDetails.formatted_address}<br>
+                        ${placeDetails.formatted_phone_number || ""}<br>
+                        ${placeDetails.website ? `<a href="${placeDetails.website}" target="_blank">Website</a><br>` : ""}
+                        ${placeDetails.rating ? `Rating: ${placeDetails.rating}/5` : ""}
+                    </div>
+                `);
+                infoWindow.open(map, marker);
+            }
+        });
+    });
 }

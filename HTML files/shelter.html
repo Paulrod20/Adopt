@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Available Pets</title>
+  <link rel="stylesheet" href="/CSS files/styles.css" />
+  <link rel="stylesheet" href="/CSS files/shelter.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #shelter-name {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .pet-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .pet-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      background-color: #fff;
+    }
+
+    .pet-card:hover {
+      transform: scale(1.03);
+    }
+
+    .pet-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .pet-name {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .pet-info {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Available Pets</h1>
+  <div id="shelter-name"></div>
+  <div class="pet-list" id="pet-list"></div>
+
+  <script>
+    // Sample mock pets (you can customize or expand this)
+    const mockPets = [
+      {
+        name: "Buddy",
+        type: "Dog",
+        age: "2 years",
+        image: "https://place-puppy.com/200x200",
+      },
+      {
+        name: "Mittens",
+        type: "Cat",
+        age: "1 year",
+        image: "https://placekitten.com/200/200",
+      },
+      {
+        name: "Charlie",
+        type: "Dog",
+        age: "3 years",
+        image: "https://place-puppy.com/200x201",
+      },
+      {
+        name: "Luna",
+        type: "Cat",
+        age: "6 months",
+        image: "https://placekitten.com/201/200",
+      },
+    ];
+
+    // Get shelter name from URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const shelterName = urlParams.get("shelter");
+
+    document.getElementById("shelter-name").textContent = shelterName
+      ? `Shelter: ${shelterName}`
+      : "Shelter not found";
+
+    const petList = document.getElementById("pet-list");
+
+    // Display mock pets
+    mockPets.forEach((pet) => {
+      const petCard = document.createElement("div");
+      petCard.className = "pet-card";
+
+      petCard.innerHTML = `
+        <img src="${pet.image}" alt="${pet.name}" />
+        <div class="pet-name">${pet.name}</div>
+        <div class="pet-info">${pet.type} - ${pet.age}</div>
+      `;
+
+      petList.appendChild(petCard);
+    });
+  </script>
+</body>
+</html>
