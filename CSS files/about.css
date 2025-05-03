@@ -9,20 +9,43 @@ body {
     background-color: #f9f9f9;
 }
 
-.about-page nav ul li a {
+/* .about-page nav ul li a {
     color: #000 !important;
-}
+} */
 
 .about-page nav ul li a:hover {
-    color: var(--accent-color) !important;
-}
-
-#nav-button {
-    color: black !important; /* Button text color */
+    color: white !important;
 }
 
 nav a {
     text-decoration: none;
+}
+
+.about-hero {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 160px 8% 100px ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-hero-left,
+.about-hero-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-hero-left h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.about-hero-right p {
+    font-size: 20px;
+    line-height: 1.6;
 }
 
 .bio-section {
