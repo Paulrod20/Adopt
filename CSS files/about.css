@@ -9,10 +9,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* .about-page nav ul li a {
-    color: #000 !important;
-} */
-
 .about-page nav ul li a:hover {
     color: white !important;
 }
@@ -24,7 +20,7 @@ nav a {
 .about-hero {
     background-color: var(--accent-color);
     color: white;
-    padding: 160px 8% 100px ;
+    padding: 160px 8% 100px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
