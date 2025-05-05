@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +14,15 @@
 <body>
     <div class="container">
         <div class="form-box login">
-            <form action="">
+            <form action="/login.php" method="POST">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt' ></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="forgot-link">
                     <a href="#">Forgot password?</a>
@@ -36,19 +40,19 @@
 
         <!-- Registration Form -->
         <div class="form-box register">
-            <form action="">
+            <form action="/register.php" method="POST">
                 <h1>Register</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
-                    <i class='bx bxs-envelope' ></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt' ></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
                 </div>
                 <button type="submit" class="btn">Register</button>
                 <p>or register with social platforms</p>
