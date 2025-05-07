@@ -14,6 +14,33 @@ $profilePic = $loggedIn && isset($_SESSION['user']['profile_pic']) ? $_SESSION['
     <link rel="stylesheet" href="/CSS files/styles.css">
     <title>Adopt | Home</title>
     <style>
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 10;
+            padding: 20px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .logo {
+            width: 80px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
         .profile-icon {
             width: 40px;
             height: 40px;
@@ -23,50 +50,37 @@ $profilePic = $loggedIn && isset($_SESSION['user']['profile_pic']) ? $_SESSION['
             cursor: pointer;
         }
 
-        .dropdown {
-            position: relative;
-        }
-
         .dropdown-menu {
             position: absolute;
             top: 50px;
             right: 0;
             background: white;
             border: 1px solid #ccc;
+            padding: 0;
             border-radius: 8px;
             display: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 100;
-            width: 160px; /* set a fixed or max width */
-            padding: 0;
-            text-align: center;
+            width: 150px;
         }
-
-        .dropdown-menu li {
-            list-style: none;
-            margin: 0;
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            padding: 10px 0;
-            text-decoration: none;
-            color: black;
-            width: 100%;
-            transition: background-color 0.2s ease;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #f0f0f0;
-        }
-
 
         .dropdown:hover .dropdown-menu,
         .dropdown-menu:hover {
             display: block;
         }
 
-</style>
+        .dropdown-menu li {
+            list-style: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dropdown-menu li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+    </style>
 
 </head>
 <body>
@@ -89,9 +103,9 @@ $profilePic = $loggedIn && isset($_SESSION['user']['profile_pic']) ? $_SESSION['
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="/shelters.html">SHELTERS</a></li>
-                <li><a href="/php/about.html">ABOUT US</a></li>
-                <li><a href="/php/donate.html">DONATE</a></li>
+                <li><a href="/shelters.php">SHELTERS</a></li>
+                <li><a href="/php/about.php">ABOUT US</a></li>
+                <li><a href="/php/donate.php">DONATE</a></li>
                 <?php if (!$loggedIn): ?>
                 <li><a href="/php/signin.php" id="nav-button">Log In</a></li>
                 <?php else: ?>
@@ -108,7 +122,7 @@ $profilePic = $loggedIn && isset($_SESSION['user']['profile_pic']) ? $_SESSION['
 
         <div class="content">
             <h1>Your Best Friend Is One Click Away.</h1>
-            <a href="/shelters.html">Explore</a>
+            <a href="/shelters.php">Explore</a>
         </div>
     </div>
 

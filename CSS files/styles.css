@@ -61,7 +61,7 @@ nav ul li a:hover {
 }
 
 #nav-button {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color);  /* Button background color - you can change this */
     color: white;
     padding: 8px 16px;
     border-radius: 4px;
@@ -70,9 +70,10 @@ nav ul li a:hover {
 }
 
 #nav-button:hover {
-    background-color: var(--accent-color);
-    transition: .2s;
-}
+    background-color: var(--accent-color); 
+    transition: .2s; /* Darker shade for hover effect */
+} 
+
 
 .logo {
     height: auto;
@@ -179,6 +180,7 @@ nav ul li a:hover {
     }
 }
 
+/* Add these styles for hamburger animation */
 .rotate-45 {
     transform: rotate(45deg) translate(5px, 6px);
 }
@@ -191,6 +193,7 @@ nav ul li a:hover {
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
+/* For mobile devices, you might want to add this media query for better control */
 @media (max-width: 768px) {
     .back-video {
         object-fit: cover;
@@ -198,67 +201,60 @@ nav ul li a:hover {
     }
 }
 
+/* Add or update these styles */
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     width: 100%;
 }
 
 .video-container {
-    position: fixed;
+    position: fixed; /* Change from absolute to fixed */
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     z-index: -1;
-    overflow: hidden;
+    overflow: hidden; /* Ensure video container doesn't cause scrolling */
 }
 
 .color-overlay {
-    position: fixed;
+    position: fixed; /* Change from absolute to fixed */
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
     z-index: -1;
 }
 
+/* If you have any content containers, add this */
 .content {
     position: relative;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100vw; /* Ensure content doesn't exceed viewport width */
     overflow-x: hidden;
 }
 
 .your-element {
     background-image: url('/assets/DogBackground.jpg');
+    /* Make sure image covers the container */
     background-size: cover;
     background-position: center;
 }
 
-/* Profile icon styles for navbar */
-nav .nav-links {
-    display: flex;
-    align-items: center;
-}
-
-nav .nav-links .dropdown {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-left: 20px;
-}
-
-nav .nav-links .dropdown img.profile-icon {
+.profile-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #08C2FF;
     cursor: pointer;
-    vertical-align: middle;
+}
+
+.dropdown {
+    position: relative;
 }
 
 .dropdown-menu {
@@ -267,23 +263,34 @@ nav .nav-links .dropdown img.profile-icon {
     right: 0;
     background: white;
     border: 1px solid #ccc;
-    padding: 10px 0;
     border-radius: 8px;
     display: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 100;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+    width: 160px;
+    padding: 0;
+    text-align: center;
 }
 
 .dropdown-menu li {
     list-style: none;
-    padding: 10px 20px;
+    margin: 0;
 }
 
 .dropdown-menu li a {
+    display: block;
+    padding: 10px 0;
     text-decoration: none;
     color: black;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
 }
