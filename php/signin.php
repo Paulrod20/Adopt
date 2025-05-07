@@ -14,7 +14,7 @@ session_start();
 <body>
     <div class="container">
         <div class="form-box login">
-            <form action="/login.php" method="POST">
+            <form action="/php/login.php" method="POST">
                 <h1>Login</h1>
                 <div class="input-box">
                     <input type="text" name="username" placeholder="Username" required>
@@ -40,7 +40,7 @@ session_start();
 
         <!-- Registration Form -->
         <div class="form-box register">
-            <form action="/register.php" method="POST">
+            <form action="/php/register.php" method="POST">
                 <h1>Register</h1>
                 <div class="input-box">
                     <input type="text" name="username" placeholder="Username" required>
