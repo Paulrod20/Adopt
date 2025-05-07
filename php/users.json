@@ -4,5 +4,11 @@
         "email": "paulyd0123@gmail.com",
         "password": "$2y$10$GngYscDRxF2J1PxeMuHQeOhYGsZVvblag2dhDMVrkG6Uatm04ePGy",
         "profile_pic": "\/assets\/default-user.png"
+    },
+    {
+        "username": "cvcc",
+        "email": "cvcc@gmail.com",
+        "password": "$2y$10$4VLpMeBrmo8NjGe\/8sTMHOKvOCk.4uGKMkN0lKj9pcZz\/21EtZxUm",
+        "profile_pic": "\/assets\/default-user.png"
     }
 ]

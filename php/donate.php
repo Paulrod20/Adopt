@@ -76,7 +76,7 @@ $profilePic = $loggedIn && isset($_SESSION['user']['profile_pic']) ? $_SESSION['
 
         .dropdown-menu li a {
             text-decoration: none;
-            color: black; !important
+            color: black; 
             display: block;
         }
   </style>
