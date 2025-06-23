@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+nav {
+    background-color: var(--accent-color);
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: white !important;
+}
+
+
+
